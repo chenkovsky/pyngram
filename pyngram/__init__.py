@@ -1,7 +1,9 @@
 __author__ = 'chenkovsky'
 from ctypes import *
 import os
-from arpa import arpa
+
+from . import arpa
+
 libngram = cdll.LoadLibrary(os.path.dirname(os.path.realpath(__file__)) + '/../libngram.so')
 libngram.NgramBuilder_init.restype = POINTER(c_byte)
 libngram.Ngram_init_from_bin.restype = POINTER(c_byte)
